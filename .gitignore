@@ -1,0 +1,4 @@
+__pycache__
+*.db
+.envrc
+.DS_Store
