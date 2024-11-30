@@ -6,7 +6,7 @@ class OCR():
     def __init__(self):
         openai.api_key = os.environ["OPENAI_API_KEY"]
 
-    def get_text(self, base64_encoded_img: str):
+    def get_text(self, base64_encoded_img: str) -> str:
         response = openai.chat.completions.create(
           model="gpt-4o",
           messages=[
