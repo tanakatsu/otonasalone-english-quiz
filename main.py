@@ -34,7 +34,7 @@ def main():
     otonasalone = OtonaSalone()
     ocr_processor = OCR()
     line_client = LineClient()
-    line_user_id = os.environ["LINE_USER_ID"]
+    line_target_user_id = os.environ.get("LINE_TARGET_USER_ID", None)
 
     articles = otonasalone.get_articles()
     new_articles = select_new_articles(articles)
@@ -50,7 +50,7 @@ def main():
 
     for article, message in zip(new_articles, messages):
         # print(message)
-        line_client.send_message(line_user_id, message)
+        line_client.send_message(message, line_target_user_id)
         mark_article_as_processed(article)
 
 

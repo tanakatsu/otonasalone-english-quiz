@@ -22,13 +22,13 @@ Set information below in environment variable
     - API key generated in OpenAI platform
 - LINE\_CHANNEL\_ACCESS\_TOKEN
     - Channel access token of Messaging API generated in LINE Developers console
-- LINE\_USER\_ID
+- LINE\_TARGET_\USER\_ID (Optional)
     - The LINE UID is a 33-character string starting with "U," issued by the LINE platform
     - This is different from the display name or LINE ID used for friend searches
 ```
-export LINE_CHANNEL_ACCESS_TOKEN=YOUR_LINE_CHANNEL_ACCESS_TOKEN
-export LINE_USER_ID=YOUR_LINE_USER_ID
 export OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+export LINE_CHANNEL_ACCESS_TOKEN=YOUR_LINE_CHANNEL_ACCESS_TOKEN
+export LINE_TARGET_USER_ID=YOUR_LINE_USER_ID
 ```
 
 ### Get started
