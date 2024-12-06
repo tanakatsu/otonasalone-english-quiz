@@ -40,17 +40,16 @@ def main():
     new_articles = select_new_articles(articles)
     print(f"Found {len(new_articles)} articles.")
 
-    messages = []
-    for article in new_articles:
-        print(article.title)
-        encoded_img = otonasalone.get_encoded_image(article.url)
-        text = ocr_processor.get_text(encoded_img)
-        print(text)
-        messages.append(build_message(article, text))
+    input_base64_images = [otonasalone.get_encoded_image(article.url)
+                           for article in new_articles]
+    texts = ocr_processor.get_texts(input_base64_images)
+    for article, text in zip(new_articles, texts):
+        print(f"{article.title}\n{text}\n")
 
-    for article, message in zip(new_articles, messages):
+    for article, text in zip(new_articles, texts):
+        answer_message = build_message(article, text)
         # print(message)
-        line_client.send_message(message, line_target_user_id)
+        line_client.send_message(answer_message, line_target_user_id)
         mark_article_as_processed(article)
 
 
