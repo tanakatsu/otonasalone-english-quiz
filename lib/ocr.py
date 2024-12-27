@@ -8,7 +8,7 @@ T = TypeVar("T")
 
 
 class OCR():
-    GPT_MODEL = "gpt-4o"
+    GPT_MODEL = "gpt-4o-mini"
 
     def __init__(self):
         openai.api_key = os.environ["OPENAI_API_KEY"]
@@ -24,7 +24,7 @@ class OCR():
                 "content": [
                     {
                         "type": "text",
-                        "text": "提供された画像からテキストを抽出してください。"
+                        "text": "提供された画像からテキストを抽出してください。抽出したテキストのみを返してください。"
                     },
                     {
                         "type": "image_url",
